@@ -196,8 +196,6 @@
             .btn-sync:active::before,
             .btn-sync:focus::before,
             .btn-sync:visited::before,
-            .reach-out-main:active::before,
-            .reach-out-main:focus::before,
             .reach-out-main:visited::before,
             .card a.btn-sync:active::before,
             .card a.btn-sync:focus::before,
@@ -323,7 +321,7 @@
                 animation: rgbWaveMobile 1.5s linear infinite;
                 transition: opacity 0s !important; /* Instant */
             }
-            
+
             .nav-links .btn-sync::before {
                 transition: opacity 0s !important; /* Instant off */
             }
@@ -558,23 +556,59 @@
 
         /* Touch device interactions (mobile/tablet) */
         @media (hover: none) and (pointer: coarse) {
+            /* Always animate RGB for reach-out-main button on mobile */
+            .reach-out-main,
+            .reach-out-main:active,
+            .reach-out-main:focus {
+                animation: rgbWave 4s linear infinite, gentlePulse 3s ease-in-out infinite !important;
+                transition: transform 0s, box-shadow 0s !important;
+            }
+
+            .reach-out-main::before,
+            .reach-out-main:active::before,
+            .reach-out-main:focus::before {
+                opacity: 1 !important;
+                animation: rgbBorderRotate 3s linear infinite !important;
+            }
+
+            /* Prevent :active state from interrupting animation */
+            .reach-out-main:active {
+                background: linear-gradient(
+                    45deg,
+                    #ff0080,
+                    #ff0000,
+                    #ff8000,
+                    #ffff00,
+                    #00ff00,
+                    #00ffff,
+                    #0080ff,
+                    #8000ff,
+                    #ff0080
+                ) !important;
+                background-size: 400% 400% !important;
+                color: white !important;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+                box-shadow:
+                    0 10px 40px rgba(255, 0, 128, 0.4),
+                    0 0 20px rgba(0, 255, 255, 0.3) !important;
+                transform: none !important;
+                border-radius: 50px !important;
+                animation: rgbWave 4s linear infinite, gentlePulse 3s ease-in-out infinite !important;
+            }
+
             .reach-out-main.touch-active {
                 transform: scale(0.98);
-                box-shadow: 
+                box-shadow:
                     0 5px 20px rgba(255, 0, 255, 0.5),
                     0 0 30px rgba(0, 255, 255, 0.4),
                     inset 0 2px 8px rgba(0,0,0,0.2);
                 transition: all 0s !important; /* Instant like PC */
             }
-            
+
             /* Reset reach-out-main when NOT touch-active */
             .reach-out-main:not(.touch-active) {
                 transform: none !important;
                 transition: transform 0s, box-shadow 0s !important;
-            }
-            
-            .reach-out-main {
-                transition: transform 0s, box-shadow 0s !important; /* Instant off */
             }
         }
 
