@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Creator Venture Accelerator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -50,10 +51,16 @@
         .navbar {
             width: 100%;
             position: sticky; top: 0; z-index: 2000;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             border-top: 4px solid var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                border-top: 4px solid orange;
+            }
         }
 
         .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
@@ -790,6 +797,13 @@
                 gap: 12px;
             }
         }
+
+        /* Make Venture Investment button orange on PC only */
+        @media (min-width: 1025px) {
+            .venture-btn {
+                color: var(--primary) !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -846,7 +860,7 @@
 
                 <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 12px;">
                     <a href="mailto:em@pre-founder.com" class="btn-sync" style="border: 2px solid var(--primary); text-align: center; color: var(--primary); padding: 14px;">Grant Inquiry</a>
-                    <a href="mailto:em@pre-founder.com" class="btn-sync" style="background: var(--primary); color: white; text-align: center; padding: 14px;">Venture Investment</a>
+                    <a href="mailto:em@pre-founder.com" class="btn-sync venture-btn" style="border: 2px solid var(--primary); text-align: center; color: var(--primary); padding: 14px;">Venture Investment</a>
                 </div>
             </section>
 
