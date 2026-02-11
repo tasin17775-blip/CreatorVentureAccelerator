@@ -136,13 +136,10 @@
                 }
             }
 
-            .btn-sync:hover { 
+            .btn-sync:hover {
                 color: white;
                 text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
                 transform: translateY(-2px);
-                box-shadow: 
-                    0 5px 20px rgba(255, 0, 255, 0.4),
-                    0 0 15px rgba(0, 255, 255, 0.3);
             }
         }
 
@@ -297,72 +294,26 @@
                 overflow: hidden;
             }
 
-            /* RGB effect for mobile drawer menu buttons */
-            .nav-links .btn-sync::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                border-radius: 10px;
-                background: linear-gradient(
-                    45deg,
-                    #ff0080,
-                    #ff0000,
-                    #ff8000,
-                    #ffff00,
-                    #00ff00,
-                    #00ffff,
-                    #0080ff,
-                    #8000ff,
-                    #ff0080
-                );
-                background-size: 400% 400%;
-                opacity: 0;
-                transition: opacity 0.2s ease;
-                z-index: -1;
-            }
-
-            /* Hover for desktop, custom class for mobile */
-            .nav-links .btn-sync:hover::before,
-            .nav-links .btn-sync.touch-active::before {
-                opacity: 1;
-                animation: rgbWaveMobile 1.5s linear infinite;
-                transition: opacity 0s !important; /* Instant */
-            }
-
-            .nav-links .btn-sync::before {
-                transition: opacity 0s !important; /* Instant off */
-            }
-
-            .nav-links .btn-sync:hover,
+            /* Simple glow effect for mobile drawer menu buttons */
             .nav-links .btn-sync.touch-active {
                 color: white !important;
                 text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
                 border-color: transparent;
-                box-shadow: 
-                    0 5px 20px rgba(255, 0, 255, 0.4),
-                    0 0 15px rgba(0, 255, 255, 0.3);
+                box-shadow: 0 0 15px rgba(255, 107, 53, 0.6);
                 transition: all 0s !important; /* Instant */
             }
-            
+
             /* Reset nav-links buttons when NOT touch-active */
             .nav-links .btn-sync:not(.touch-active) {
                 color: inherit !important;
                 text-shadow: none !important;
                 border-color: inherit !important;
+                box-shadow: none !important;
                 transition: all 0s !important;
             }
-            
+
             .nav-links .btn-sync {
                 transition: all 0s !important; /* Instant off */
-            }
-
-            @keyframes rgbWaveMobile {
-                0% {
-                    background-position: 0% 50%;
-                }
-                100% {
-                    background-position: 400% 50%;
-                }
             }
         }
 
@@ -821,10 +772,10 @@
                     <span class="drawer-logo">CVA Accelerator</span>
                     <button class="close-btn" id="close-drawer">&times;</button>
                 </div>
-                <li><a href="#whats-cva" class="btn-sync">What's CVA?</a></li>
-                <li><a href="#why-creators" class="btn-sync">Why Creators?</a></li>
-                <li><a href="https://emilyherrera.com/creatorconsumer" class="btn-sync" target="_blank">Creators + Venture</a></li>
-                <li><a href="https://contentterminal.co" class="btn-sync" target="_blank">ContentTerminal</a></li>
+                <li><a href="#whats-cva" class="btn-sync no-glow">What's CVA?</a></li>
+                <li><a href="#why-creators" class="btn-sync no-glow">Why Creators?</a></li>
+                <li><a href="https://emilyherrera.com/creatorconsumer" class="btn-sync no-glow" target="_blank">Creators + Venture</a></li>
+                <li><a href="https://contentterminal.co" class="btn-sync no-glow" target="_blank">ContentTerminal</a></li>
                 <li><a href="https://www.workforacreator.com" class="btn-sync" target="_blank">WorkForACreator</a></li>
                 <li><a href="https://pre-founder.com/" class="btn-sync" target="_blank">Library</a></li>
                 <li><a href="https://calculator.cvaccelerator.com" class="btn-sync" target="_blank">Valuation Calculator</a></li>
