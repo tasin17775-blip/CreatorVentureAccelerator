@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Creator Venture Accelerator</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://js.stripe.com/v3/"></script>
 
     <style>
@@ -734,6 +735,27 @@
 
         .founder-badge:hover .x-logo-small {
             opacity: 1;
+        }
+
+        /* Mobile/Touch: Prevent founder badge from staying active/glowing after press */
+        @media (hover: none) and (pointer: coarse) {
+            .founder-badge,
+            .founder-badge:active,
+            .founder-badge:focus,
+            .founder-badge:focus-visible,
+            .founder-badge:visited,
+            .founder-badge:target {
+                transform: none !important;
+                background: rgba(255, 107, 53, 0.08) !important;
+                box-shadow: none !important;
+                border-color: rgba(255, 107, 53, 0.15) !important;
+            }
+
+            .founder-badge .x-logo-small,
+            .founder-badge:active .x-logo-small,
+            .founder-badge:focus .x-logo-small {
+                opacity: 0.7 !important;
+            }
         }
 
         @media (max-width: 600px) {
